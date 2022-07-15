@@ -1,0 +1,40 @@
+@mixin flex ($h: null, $v: null) {
+  display: flex;
+  @if($h) { justify-content: $h; }
+  @if($v) { align-items: $v; }
+}
+
+@mixin size ($w: null, $h: null) {
+  @if($w) { width: $w; }
+  @if($h) { height: $h; }
+  @else if($w) { height: $w }
+}
+
+@mixin disabled ($opacity: null) {
+  opacity: $opacity;
+  pointer-events: none;
+}
+
+@mixin buttonTheme (
+  $stdBg: null,
+  $stdColor: null,
+  $hoverBg: null,
+  $hoverColor: null,
+  $activeBg: null,
+  $activeColor: null
+) {
+  background: $stdBg;
+  color: $stdColor;
+
+  &:hover:enabled {
+    background: $hoverBg;
+    color: $hoverColor;
+  }
+  &:active:enabled {
+    color: $activeColor;
+    background: $activeBg;
+  }
+  &:focus {
+    background: $activeBg;
+  }
+}

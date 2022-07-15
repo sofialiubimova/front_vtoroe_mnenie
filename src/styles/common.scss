@@ -1,0 +1,104 @@
+@import "~@smartmed/webpatient-vue-components/styles/local.scss";
+@import "~@smartmed/webpatient-vue-components/styles/global.scss";
+@import "_mixins";
+@import "_variables";
+
+body {
+  background: #f2f2f2;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+	color: #001424;
+}
+
+.flex {
+	@include flex;
+
+	&--fill-height {
+		height: 100%;
+	}
+}
+
+.wide {
+  width: 100%;
+}
+
+.align {
+	&--v {
+		&-center {
+			align-items: center;
+		}
+	}
+	&--h {
+		&-center {
+			justify-content: center;
+		}
+	}
+}
+
+a {
+	color: $primary;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+$aligns: center, left, right, justify;
+.text {
+  @each $item in $aligns {
+    &-#{$item} {
+      text-align: $item;
+    }
+  }
+}
+
+$indents: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70;
+.m {
+  @each $item in $indents {
+    &t-#{$item} {
+      margin-top: $item + px;
+    }
+    &b-#{$item} {
+      margin-bottom: $item + px;
+    }
+    &l-#{$item} {
+      margin-left: $item + px;
+    }
+    &r-#{$item} {
+      margin-right: $item + px;
+    }
+    &v-#{$item} {
+      margin-top: $item + px;
+      margin-bottom: $item + px;
+    }
+  }
+}
+
+.p {
+  @each $item in $indents {
+    &t-#{$item} {
+      padding-top: $item + px;
+    }
+    &b-#{$item} {
+      padding-bottom: $item + px;
+    }
+    &l-#{$item} {
+      padding-left: $item + px;
+    }
+    &r-#{$item} {
+      padding-right: $item + px;
+    }
+    &v-#{$item} {
+      padding-top: $item + px;
+      padding-bottom: $item + px;
+    }
+  }
+}
