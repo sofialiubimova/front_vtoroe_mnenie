@@ -1,0 +1,1 @@
+export type DiagnosisType={title: string, value: number, pathologies: string[]}
